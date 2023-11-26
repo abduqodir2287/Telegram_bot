@@ -19,7 +19,7 @@ async def start_command(message: types.Message):
 
 """__________________________Group chat______________________________________"""
 @dp.message_handler()
-async def echo(message: types.Message):
+async def qorovul(message: types.Message):
     print(f"DATE: {datetime.now().strftime('%H:%M')} USER: {message.from_user.username} MSG: {message.text}")
     global ban_list, ban_min
     now_hour = datetime.now().hour
@@ -27,7 +27,7 @@ async def echo(message: types.Message):
     now_sec = datetime.now().second
 
     if 'http' in message.text:
-        await message.reply("Remark tarqatmang!!!")
+        await message.reply("Reklama tarqatmang!!!")
         await message.delete()
         now_all = f"{message.from_user.username}>>{now_hour}:{now_min}:{now_sec}"
         print(now_all)

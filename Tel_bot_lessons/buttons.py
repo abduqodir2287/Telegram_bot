@@ -21,5 +21,5 @@ btn_music = KeyboardButton('music')
 btn_video = KeyboardButton('video')
 btn_doc = KeyboardButton('document')
 fileTypesMenu = (ReplyKeyboardMarkup(resize_keyboard=True).add(btn_image,
-        btn_music).add(btn_video, btn_doc))
+                                                               btn_music).add(btn_video, btn_doc))
 

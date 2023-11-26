@@ -7,7 +7,7 @@ class helperDB:
         self.tabname = ''
         self.conn = sqlite3.connect(self.dbname)
 
-    def setup(self, tabname='custom'):
+    def create_table(self, tabname='custom'):
             """
             create table for database
             :param tabname: base name
@@ -39,7 +39,8 @@ class helperDB:
 
     def select_item(self):
         sql = f"""SELECT * FROM {self.tabname};"""
-        return self.conn.execute(sql).fetchall()
+        data = self.conn.execute(sql).fetchall()
+        return data
 
     def update_item(self, id, username):
         sql = f"""UPDATE {self.tabname} SET 

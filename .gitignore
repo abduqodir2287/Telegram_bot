@@ -1,2 +1,4 @@
-config.py
+Tel_bot_lessons/config.py
 .idea/
+Itpark_register/IT_park_bot_token.py
+API_examples/api_key.py

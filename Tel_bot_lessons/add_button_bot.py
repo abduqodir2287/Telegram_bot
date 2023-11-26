@@ -4,7 +4,7 @@ from aiogram import *
 from aiogram.types import KeyboardButton
 
 from config import exampe_bot_token
-from tel_bot import links
+from first_tel_bot import links
 from buttons import menu
 
 bot = Bot(token=exampe_bot_token)
@@ -19,9 +19,9 @@ button = KeyboardButton(f"btn")
 
 @dp.message_handler(commands=["start"])
 async def start_com(message: types.Message):
-    info = message.from_user.username
+    user_info = message.from_user.username
 
-    await message.reply(f"Assalomu Aleykum {info} botga xush kelibsiz\n"
+    await message.reply(f"Assalomu Aleykum {user_info} botga xush kelibsiz\n"
                         f"Dasturlash tilini tanlang", reply_markup=menu)
 
 
@@ -29,9 +29,7 @@ async def start_com(message: types.Message):
 async def add_btn(message: types.Message):
     global button
 
-    if links.get(message.text) is None:
-        await message.answer("Bu buyruq mavjud emas")
-    elif message.text == "ADD":
+    if message.text == "ADD":
         menu.add(button)
         await message.answer("Button qoshish uchun /start ni bosing")
     else:

@@ -1,1 +1,0 @@
-exampe_bot_token = '5915958731:AAGc5MfT73Rtf87ugw9HP4RZs2eG0g-E19w'

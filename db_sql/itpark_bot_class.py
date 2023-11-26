@@ -1,13 +1,13 @@
 import sqlite3
 
 
-class helperDB:
+class Itpark_bot_helperDB:
     def __init__(self, dbname='tech.db'):
         self.dbname = dbname
         self.tabname = ''
         self.conn = sqlite3.connect(self.dbname)
 
-    def setup(self, tabname='custom'):
+    def create_table(self, tabname='custom'):
             """
             create table for database
             :param tabname: base name
@@ -17,17 +17,19 @@ class helperDB:
             sql = f"""
                 CREATE TABLE IF NOT EXISTS {tabname}(
                       "id"  INTEGER PRIMARY KEY AUTOINCREMENT,
-                      "userID" INTEGER,
-                      "username"  TEXT
+                      "fullname" TEXT, 
+                      "phoneNumber" TEXT,
+                      "course"  TEXT, 
+                      "pasport" TEXT
                     );"""
 
             self.conn.execute(sql)
 
-    def add_item(self, userID: int, username: str):
+    def add_item(self, fullname, phoneNumber, course, pasport):
 
-        sql = f"""INSERT INTO "{self.tabname}" (userID, username)
-            VALUES (?, ?);"""
-        data = (userID, username)
+        sql = f"""INSERT INTO "{self.tabname}" (fullname, phoneNumber, course, pasport)
+            VALUES (?, ?, ?, ?);"""
+        data = (fullname, phoneNumber, course, pasport)
         self.conn.execute(sql, data)
         self.conn.commit()
 
